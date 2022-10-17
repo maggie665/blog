@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+{{ post.title_tag}}
+{% endblock %}
+
+{% block content %}
+<h1>Delete {{ post.title }}</h1>
+    {% if post.post_image %}
+    <div>
+        <img src="{{ post.post_image.url }}" width="200px">
+    </div>
+    {% endif %}
+    <div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Delete">
+    </form>
+    </div>
+
+{% endblock %}
